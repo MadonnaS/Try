@@ -82,7 +82,7 @@ void DIO_writePin(const DioConfig *a_sState_Ptr)
 /******************************************************************************************************************/
 uint8 DIO_readPin(const DioConfig *a_sState_Ptr)
 {   
-	uint8  out;
+	;
    	volatile uint8* PORT_Ptr; /* point to the required PORT Register to check which port used and then read value in it*/
 	switch (a_sState_Ptr->s_port)
 	{
@@ -101,16 +101,6 @@ uint8 DIO_readPin(const DioConfig *a_sState_Ptr)
         default: PORT_Ptr = &PORTE;
 
 	}
-if (BIT_IS_SET(*PORT_Ptr,a_sState_Ptr->s_pinNum))
-	{/*check if the corresponding bit is set in the PORT registe*/
-	     out=LogicHigh;	
-	}
-	else if(BIT_IS_CLEAR(*PORT_Ptr,a_sState_Ptr->s_pinNum))
-	{/*check if the corresponding bit is clear in the PORT registe*/
-		out=LogicLow;
-	}
-    else 
-    {
-    } 
-return out ;
+
+return (BIT_IS_SET(*PORT_Ptr,a_sState_Ptr->s_pinNum))?LogicHigh:LogicLow ;
 } 
