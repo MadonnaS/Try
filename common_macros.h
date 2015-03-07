@@ -57,5 +57,5 @@ BIT_NUM:number of pin on register
 
 --------------------------------------------------------------------------------------------------------------- */
 #define BIT_IS_CLEAR(REG,BIT_NUM) ( !(REG & (1<<BIT_NUM)) ) 
-
+#define toggle
 #endif /* COMMON_MACROS_H */
